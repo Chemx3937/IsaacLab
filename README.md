@@ -1,3 +1,6 @@
+# For Shelf_Picking
+This is customized by CheminAhn for shelf_picking project using RB10. 
+
 ![Isaac Lab](docs/source/_static/isaaclab.jpg)
 
 ---
