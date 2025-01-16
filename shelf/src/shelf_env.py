@@ -77,6 +77,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         prim_path="/World/Light", spawn=sim_utils.DomeLightCfg(intensity=3000.0, color=(0.75, 0.75, 0.75))
     )
 
+
     # mount
     table = AssetBaseCfg(
         prim_path="{ENV_REGEX_NS}/Table",
@@ -86,8 +87,8 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         init_state=AssetBaseCfg.InitialStateCfg(
             pos=(0.0, 0.0, 0.0)
         )  # Table의 초기 위치
-
     )
+
 
     # articulation
     if args_cli.robot == "rb10":
@@ -95,6 +96,8 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
     else:
         raise ValueError(f"Robot {args_cli.robot} is not supported. Valid: rb10")
     
+
+
     # Rigid Object
     shelf_cfg = RigidObjectCfg(
         init_state=RigidObjectCfg.InitialStateCfg(
@@ -103,6 +106,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
                 table.init_state.pos[1] - 100.0,
                 table.init_state.pos[2] + 100.0,
             ),
+            # pos=(0.0, -10.0, 0.0),
             rot =(1.0, 0.0, 0.0, 0.0)
         ),
         # prim_path="/World/Shelf/Shelf",   
@@ -118,8 +122,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
             )
         )
     )
-
-
+    
 
 def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
     """Runs the simulation loop."""
