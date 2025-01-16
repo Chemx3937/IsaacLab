@@ -53,12 +53,12 @@ def design_scene():
     cfg.func("/World/Light", cfg)
 
     # Create a single group called "Origin0"
-    origin = [0.0, 0.0, 0.0]  # Single origin at the center
+    origin = [10.0, 0.0, 0.0]  # Single origin at the center
     prim_utils.create_prim("/World/Shelf", "Xform", translation=origin)
 
     # Rigid Object
     shelf_cfg = RigidObjectCfg(
-        init_state=RigidObjectCfg.InitialStateCfg(pos =(0.0, 0.0, 0.0), rot =(1.0, 0.0, 0.0, 0.0)),
+        init_state=RigidObjectCfg.InitialStateCfg(pos =(10.0, 0.0, 0.0), rot =(1.0, 0.0, 0.0, 0.0)),
         prim_path="/World/Shelf/Shelf",
         spawn=sim_utils.UsdFileCfg(
             usd_path= "/home/ryz/IsaacLab/shelf/env/shelf_origin.usd",

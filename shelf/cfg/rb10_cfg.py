@@ -44,6 +44,7 @@ RB_CFG = ArticulationCfg(
         activate_contact_sensors=False,
     ),
     init_state=ArticulationCfg.InitialStateCfg(
+        pos=(0.0, 0.0, 0.0),
         joint_pos={
             "base": 0.0,
             "shoulder": 0.0,

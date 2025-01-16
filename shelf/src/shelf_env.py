@@ -83,18 +83,30 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         spawn=sim_utils.UsdFileCfg(
             usd_path=f"{ISAAC_NUCLEUS_DIR}/Props/Mounts/Stand/stand_instanceable.usd", scale=(2.0, 2.0, 2.0)
         ),
+        init_state=AssetBaseCfg.InitialStateCfg(
+            pos=(0.0, 0.0, 0.0)
+        )  # Table의 초기 위치
+
     )
 
     # articulation
     if args_cli.robot == "rb10":
         robot = RB_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
     else:
-        raise ValueError(f"Robot {args_cli.robot} is not supported. Valid: franka_panda, ur10, rb10, rb")
+        raise ValueError(f"Robot {args_cli.robot} is not supported. Valid: rb10")
     
     # Rigid Object
     shelf_cfg = RigidObjectCfg(
-        init_state=RigidObjectCfg.InitialStateCfg(pos =(10.0, 0.0, 0.0), rot =(1.0, 0.0, 0.0, 0.0)),
-        prim_path="/World/Shelf/Shelf",
+        init_state=RigidObjectCfg.InitialStateCfg(
+            pos =(
+                table.init_state.pos[0] + 0.0,
+                table.init_state.pos[1] - 100.0,
+                table.init_state.pos[2] + 100.0,
+            ),
+            rot =(1.0, 0.0, 0.0, 0.0)
+        ),
+        # prim_path="/World/Shelf/Shelf",   
+        prim_path="{ENV_REGEX_NS}/Shelf",
         spawn=sim_utils.UsdFileCfg(
             usd_path= "/home/ryz/IsaacLab/shelf/env/shelf_origin.usd",
             scale=(0.3, 0.3, 0.3),
@@ -215,7 +227,7 @@ def main():
     # Set main camera
     sim.set_camera_view([2.5, 2.5, 2.5], [0.0, 0.0, 0.0])
     # Design scene
-    scene_cfg = ShelfPickingSceneCfg(num_envs=args_cli.num_envs, env_spacing=2.0)
+    scene_cfg = ShelfPickingSceneCfg(num_envs=args_cli.num_envs, env_spacing=1000.0)
     scene = InteractiveScene(scene_cfg)
     # Play the simulator
     sim.reset()
