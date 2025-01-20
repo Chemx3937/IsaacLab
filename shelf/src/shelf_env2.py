@@ -9,7 +9,7 @@ This script demonstrates how to create a rigid object and interact with it.
 .. code-block:: bash
 
     # Usage
-    ./isaaclab.sh -p shelf/src/shelf_env_test.py
+    ./isaaclab.sh -p shelf/src/shelf_env.py
 
 """
 
@@ -96,6 +96,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
 
 
     # Rigid Object
+    # 사용하는 usd에 root_joint 등록되어 있으면 rb10이랑 붙어서 spawn되는 문제 발생
     shelf_cfg = RigidObjectCfg(
         init_state=RigidObjectCfg.InitialStateCfg(
             pos =(
@@ -104,13 +105,13 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
                 ground.init_state.pos[2] + 0.0,
             ),
             # pos=(0.0, -1.0, -1.05),
-            rot =(1.0, 0.0, 0.0, 0.0)
+            # rot =(1.0, 0.0, 0.0, 180.0)
         ),
         # prim_path="/World/Shelf/Shelf",   
         prim_path="{ENV_REGEX_NS}/Shelf",
         spawn=sim_utils.UsdFileCfg(
-            usd_path= "/home/ryz/IsaacLab/shelf/env/shelf_noroot.usd",
-            scale=(0.4, 0.4, 0.4),
+            usd_path= "/home/ryz/IsaacLab/shelf/env/shelf2.usd",
+            scale=(1.0, 1.0, 1.0),
             rigid_props=sim_utils.RigidBodyPropertiesCfg(
                 disable_gravity=False,
             ),
