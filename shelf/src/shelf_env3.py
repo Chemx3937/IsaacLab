@@ -100,7 +100,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         init_state=RigidObjectCfg.InitialStateCfg(
             pos =(
                 table.init_state.pos[0] + 0.0,
-                table.init_state.pos[1] - 1.5,
+                table.init_state.pos[1] - 1.2,
                 ground.init_state.pos[2] + 0.0,
             ),
             # pos=(0.0, -1.0, -1.05),
