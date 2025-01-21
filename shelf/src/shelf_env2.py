@@ -86,8 +86,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         ),
     )
 
-
-    # articulation
+    # Robot Define (articulation) <- Use rb.usd
     if args_cli.robot == "rb10":
         robot = RB_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
     else:
@@ -95,7 +94,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
     
 
 
-    # Rigid Object
+    # Shelf Define
     # 사용하는 usd에 root_joint 등록되어 있으면 rb10이랑 붙어서 spawn되는 문제 발생
     shelf_cfg = RigidObjectCfg(
         init_state=RigidObjectCfg.InitialStateCfg(
@@ -121,7 +120,8 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         )
     )
 
-    # Spawn Object
+    ######### Spawn Object ######### 
+
     # x: +-0.25, y: 
     # bottle = RigidObjectCfg(
     #     init_state=RigidObjectCfg.InitialStateCfg(
@@ -276,6 +276,8 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
     #         ),
     #     )
     # )
+    ######### Spawn Object ######### 
+
 
 def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
     """Runs the simulation loop."""
