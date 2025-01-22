@@ -142,24 +142,24 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
     #     )
     # )
 
-    # candle = RigidObjectCfg(
-    #     init_state=RigidObjectCfg.InitialStateCfg(
-    #         pos =(
-    #             shelf_cfg.init_state.pos[0] + 0.2,
-    #             shelf_cfg.init_state.pos[1] - 0.05,
-    #             shelf_cfg.init_state.pos[2] + 1.3,
-    #         ),
-    #     ),
-    #     prim_path="{ENV_REGEX_NS}/Candle",
-    #     spawn=sim_utils.UsdFileCfg(
-    #         usd_path= "/home/ryz/IsaacLab/shelf/env/candle.usd",
-    #         scale=(1.0, 1.0, 1.0),
-    #         rigid_props=sim_utils.RigidBodyPropertiesCfg(
-    #             rigid_body_enabled=True,
-    #             disable_gravity=False,
-    #         ),
-    #     )
-    # )
+    candle = RigidObjectCfg(
+        init_state=RigidObjectCfg.InitialStateCfg(
+            pos =(
+                shelf_cfg.init_state.pos[0] + 0.2,
+                shelf_cfg.init_state.pos[1] - 0.05,
+                shelf_cfg.init_state.pos[2] + 1.3,
+            ),
+        ),
+        prim_path="{ENV_REGEX_NS}/Candle",
+        spawn=sim_utils.UsdFileCfg(
+            usd_path= "/home/ryz/IsaacLab/shelf/env/candle.usd",
+            scale=(1.0, 1.0, 1.0),
+            rigid_props=sim_utils.RigidBodyPropertiesCfg(
+                rigid_body_enabled=True,
+                disable_gravity=False,
+            ),
+        )
+    )
 
     coke_can = RigidObjectCfg(
         init_state=RigidObjectCfg.InitialStateCfg(
@@ -204,7 +204,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         init_state=RigidObjectCfg.InitialStateCfg(
             pos =(
                 shelf_cfg.init_state.pos[0] - 0.3,
-                shelf_cfg.init_state.pos[1] + 0.1,
+                shelf_cfg.init_state.pos[1] - 0.15,
                 shelf_cfg.init_state.pos[2] + 1.3,
             ),
         ),
@@ -218,6 +218,26 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
             ),
         )
     )
+
+    cup = RigidObjectCfg(
+        init_state=RigidObjectCfg.InitialStateCfg(
+            pos =(
+                shelf_cfg.init_state.pos[0] + 0.0,
+                shelf_cfg.init_state.pos[1] + 0.2,
+                shelf_cfg.init_state.pos[2] + 1.3,
+            ),
+        ),
+        prim_path="{ENV_REGEX_NS}/Cup",
+        spawn=sim_utils.UsdFileCfg(
+            usd_path= "/home/ryz/IsaacLab/shelf/env/cup.usd",
+            scale=(0.05, 0.05, 0.05),
+            rigid_props=sim_utils.RigidBodyPropertiesCfg(
+                rigid_body_enabled=True,
+                disable_gravity=False,
+            ),
+        )
+    )
+
 
     # red_book = RigidObjectCfg(
     #     init_state=RigidObjectCfg.InitialStateCfg(
@@ -238,44 +258,47 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
     #     )
     # )
 
-    # green_book = RigidObjectCfg(
-    #     init_state=RigidObjectCfg.InitialStateCfg(
-    #         pos =(
-    #             shelf_cfg.init_state.pos[0] + 0.3,
-    #             shelf_cfg.init_state.pos[1] + 0.15,
-    #             shelf_cfg.init_state.pos[2] + 1.3,
-    #         ),
-    #         rot=(1.0, 90.0, 0.0, 0.0)
-    #     ),
-    #     prim_path="{ENV_REGEX_NS}/Green_book",
-    #     spawn=sim_utils.UsdFileCfg(
-    #         usd_path= "/home/ryz/IsaacLab/shelf/env/green_book.usd",
-    #         scale=(1.0, 1.0, 1.0),
-    #         rigid_props=sim_utils.RigidBodyPropertiesCfg(
-    #             rigid_body_enabled=True,
-    #             disable_gravity=False,
-    #         ),
-    #     )
-    # )
+    green_book = RigidObjectCfg(
+        init_state=RigidObjectCfg.InitialStateCfg(
+            pos =(
+                shelf_cfg.init_state.pos[0] - 0.3,
+                shelf_cfg.init_state.pos[1] + 0.15,
+                shelf_cfg.init_state.pos[2] + 1.3,
+            ),
+            # 쿼터니안 값으로 rot 입력해야 됨
+            rot=(0.707, 0.0, 0.707, 0.0)    # y축으로 90도 회전
+        ),
+        prim_path="{ENV_REGEX_NS}/Green_book",
+        spawn=sim_utils.UsdFileCfg(
+            usd_path= "/home/ryz/IsaacLab/shelf/env/green_book.usd",
+            scale=(1.0, 1.0, 1.0),
+            rigid_props=sim_utils.RigidBodyPropertiesCfg(
+                rigid_body_enabled=True,
+                disable_gravity=False,
+            ),
+        )
+    )
 
-    # blue_book = RigidObjectCfg(
-    #     init_state=RigidObjectCfg.InitialStateCfg(
-    #         pos =(
-    #             shelf_cfg.init_state.pos[0] - 0.25,
-    #             shelf_cfg.init_state.pos[1] - 0.1,
-    #             shelf_cfg.init_state.pos[2] + 1.3,
-    #         ),
-    #     ),
-    #     prim_path="{ENV_REGEX_NS}/Blue_book",
-    #     spawn=sim_utils.UsdFileCfg(
-    #         usd_path= "/home/ryz/IsaacLab/shelf/env/blue_book.usd",
-    #         scale=(1.0, 1.0, 1.0),
-    #         rigid_props=sim_utils.RigidBodyPropertiesCfg(
-    #             rigid_body_enabled=True,
-    #             disable_gravity=False,
-    #         ),
-    #     )
-    # )
+    blue_book = RigidObjectCfg(
+        init_state=RigidObjectCfg.InitialStateCfg(
+            pos =(
+                shelf_cfg.init_state.pos[0] + 0.3,
+                shelf_cfg.init_state.pos[1] + 0.1,
+                shelf_cfg.init_state.pos[2] + 1.3,
+            ),
+            # 쿼터니안 값으로 rot 입력해야 됨
+            rot=(0.5, 0.5, 0.5, -0.5)    # y축으로 90도 회전
+        ),
+        prim_path="{ENV_REGEX_NS}/Blue_book",
+        spawn=sim_utils.UsdFileCfg(
+            usd_path= "/home/ryz/IsaacLab/shelf/env/blue_book.usd",
+            scale=(1.0, 1.0, 1.0),
+            rigid_props=sim_utils.RigidBodyPropertiesCfg(
+                rigid_body_enabled=True,
+                disable_gravity=False,
+            ),
+        )
+    )
     ######### Spawn Object ######### 
 
 
