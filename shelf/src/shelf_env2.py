@@ -59,7 +59,7 @@ from omni.isaac.lab.utils.math import subtract_frame_transforms
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from cfg.rb10_cfg import RB_CFG
+from cfg.rb10_cfg import RB_CFG, RB_Gripper_CFG, UR_Gripper_CFG
 
 @configclass
 class ShelfPickingSceneCfg(InteractiveSceneCfg):
@@ -88,7 +88,9 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
 
     # Robot Define (articulation) <- Use rb.usd
     if args_cli.robot == "rb10":
-        robot = RB_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
+        # robot = RB_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
+        robot = RB_Gripper_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
+        # robot = UR_Gripper_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
     else:
         raise ValueError(f"Robot {args_cli.robot} is not supported. Valid: rb10")
     
@@ -100,7 +102,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         init_state=RigidObjectCfg.InitialStateCfg(
             pos =(
                 table.init_state.pos[0] + 0.0,
-                table.init_state.pos[1] - 1.0,
+                table.init_state.pos[1] - 1.5,
                 ground.init_state.pos[2] + 0.0,
             ),
             # pos=(0.0, -1.0, -1.05),
@@ -287,7 +289,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
                 shelf_cfg.init_state.pos[2] + 1.3,
             ),
             # 쿼터니안 값으로 rot 입력해야 됨
-            rot=(0.5, 0.5, 0.5, -0.5)    # y축으로 90도 회전
+            rot=(0.5, 0.5, 0.5, -0.5)    # y축으로 90도, z축으로 90도 회전
         ),
         prim_path="{ENV_REGEX_NS}/Blue_book",
         spawn=sim_utils.UsdFileCfg(
