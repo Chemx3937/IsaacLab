@@ -122,6 +122,25 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
         )
     )
 
+    bin = RigidObjectCfg(
+        init_state=RigidObjectCfg.InitialStateCfg(
+            pos =(
+                table.init_state.pos[0] + 0.0,
+                table.init_state.pos[1] - 0.7,
+                ground.init_state.pos[2] + 0.0,
+            ),
+        ),
+        prim_path="{ENV_REGEX_NS}/Bin",
+        spawn=sim_utils.UsdFileCfg(
+            usd_path= "/home/ryz/IsaacLab/shelf/env/bin.usd",
+            scale=(9.0, 4.0, 5.0),
+            rigid_props=sim_utils.RigidBodyPropertiesCfg(
+                rigid_body_enabled=True,
+                disable_gravity=False,
+            ),
+        )
+    )
+
     ######### Spawn Object ######### 
 
     # x: +-0.25, y: 
