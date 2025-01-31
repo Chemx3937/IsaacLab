@@ -1,6 +1,11 @@
 # For Shelf_Picking
 This is customized by CheminAhn for shelf_picking project using RB10.
-
+- Robot URDF: rb10_1300e_e.urdf
+- Gripper_USD: ReC_Gripper_Materialed_Final.usd
+- Robot USD: rb_ReC_Gripper.usd
+- Robot CFG: RB_Gripper_CFG
+- Code: shelf_env2.py
+- Object: coke_can, milk, tomato_sauce, cup
 
 This Package doesn't include usd, urdf Files.
 
