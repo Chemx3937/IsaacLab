@@ -144,24 +144,24 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
     #     )
     # )
 
-    candle = RigidObjectCfg(
-        init_state=RigidObjectCfg.InitialStateCfg(
-            pos =(
-                shelf_cfg.init_state.pos[0] + 0.2,
-                shelf_cfg.init_state.pos[1] - 0.05,
-                shelf_cfg.init_state.pos[2] + 1.3,
-            ),
-        ),
-        prim_path="{ENV_REGEX_NS}/Candle",
-        spawn=sim_utils.UsdFileCfg(
-            usd_path= "/home/ryz/IsaacLab/shelf/env/candle.usd",
-            scale=(1.0, 1.0, 1.0),
-            rigid_props=sim_utils.RigidBodyPropertiesCfg(
-                rigid_body_enabled=True,
-                disable_gravity=False,
-            ),
-        )
-    )
+    # candle = RigidObjectCfg(
+    #     init_state=RigidObjectCfg.InitialStateCfg(
+    #         pos =(
+    #             shelf_cfg.init_state.pos[0] + 0.2,
+    #             shelf_cfg.init_state.pos[1] - 0.05,
+    #             shelf_cfg.init_state.pos[2] + 1.3,
+    #         ),
+    #     ),
+    #     prim_path="{ENV_REGEX_NS}/Candle",
+    #     spawn=sim_utils.UsdFileCfg(
+    #         usd_path= "/home/ryz/IsaacLab/shelf/env/candle.usd",
+    #         scale=(1.0, 1.0, 1.0),
+    #         rigid_props=sim_utils.RigidBodyPropertiesCfg(
+    #             rigid_body_enabled=True,
+    #             disable_gravity=False,
+    #         ),
+    #     )
+    # )
 
     coke_can = RigidObjectCfg(
         init_state=RigidObjectCfg.InitialStateCfg(
@@ -260,47 +260,47 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
     #     )
     # )
 
-    green_book = RigidObjectCfg(
-        init_state=RigidObjectCfg.InitialStateCfg(
-            pos =(
-                shelf_cfg.init_state.pos[0] - 0.3,
-                shelf_cfg.init_state.pos[1] + 0.15,
-                shelf_cfg.init_state.pos[2] + 1.3,
-            ),
-            # 쿼터니안 값으로 rot 입력해야 됨
-            rot=(0.707, 0.0, 0.707, 0.0)    # y축으로 90도 회전
-        ),
-        prim_path="{ENV_REGEX_NS}/Green_book",
-        spawn=sim_utils.UsdFileCfg(
-            usd_path= "/home/ryz/IsaacLab/shelf/env/green_book.usd",
-            scale=(1.0, 1.0, 1.0),
-            rigid_props=sim_utils.RigidBodyPropertiesCfg(
-                rigid_body_enabled=True,
-                disable_gravity=False,
-            ),
-        )
-    )
+    # green_book = RigidObjectCfg(
+    #     init_state=RigidObjectCfg.InitialStateCfg(
+    #         pos =(
+    #             shelf_cfg.init_state.pos[0] - 0.3,
+    #             shelf_cfg.init_state.pos[1] + 0.15,
+    #             shelf_cfg.init_state.pos[2] + 1.3,
+    #         ),
+    #         # 쿼터니안 값으로 rot 입력해야 됨
+    #         rot=(0.707, 0.0, 0.707, 0.0)    # y축으로 90도 회전
+    #     ),
+    #     prim_path="{ENV_REGEX_NS}/Green_book",
+    #     spawn=sim_utils.UsdFileCfg(
+    #         usd_path= "/home/ryz/IsaacLab/shelf/env/green_book.usd",
+    #         scale=(1.0, 1.0, 1.0),
+    #         rigid_props=sim_utils.RigidBodyPropertiesCfg(
+    #             rigid_body_enabled=True,
+    #             disable_gravity=False,
+    #         ),
+    #     )
+    # )
 
-    blue_book = RigidObjectCfg(
-        init_state=RigidObjectCfg.InitialStateCfg(
-            pos =(
-                shelf_cfg.init_state.pos[0] + 0.3,
-                shelf_cfg.init_state.pos[1] + 0.1,
-                shelf_cfg.init_state.pos[2] + 1.3,
-            ),
-            # 쿼터니안 값으로 rot 입력해야 됨
-            rot=(0.5, 0.5, 0.5, -0.5)    # y축으로 90도, z축으로 90도 회전
-        ),
-        prim_path="{ENV_REGEX_NS}/Blue_book",
-        spawn=sim_utils.UsdFileCfg(
-            usd_path= "/home/ryz/IsaacLab/shelf/env/blue_book.usd",
-            scale=(1.0, 1.0, 1.0),
-            rigid_props=sim_utils.RigidBodyPropertiesCfg(
-                rigid_body_enabled=True,
-                disable_gravity=False,
-            ),
-        )
-    )
+    # blue_book = RigidObjectCfg(
+    #     init_state=RigidObjectCfg.InitialStateCfg(
+    #         pos =(
+    #             shelf_cfg.init_state.pos[0] + 0.3,
+    #             shelf_cfg.init_state.pos[1] + 0.1,
+    #             shelf_cfg.init_state.pos[2] + 1.3,
+    #         ),
+    #         # 쿼터니안 값으로 rot 입력해야 됨
+    #         rot=(0.5, 0.5, 0.5, -0.5)    # y축으로 90도, z축으로 90도 회전
+    #     ),
+    #     prim_path="{ENV_REGEX_NS}/Blue_book",
+    #     spawn=sim_utils.UsdFileCfg(
+    #         usd_path= "/home/ryz/IsaacLab/shelf/env/blue_book.usd",
+    #         scale=(1.0, 1.0, 1.0),
+    #         rigid_props=sim_utils.RigidBodyPropertiesCfg(
+    #             rigid_body_enabled=True,
+    #             disable_gravity=False,
+    #         ),
+    #     )
+    # )
     ######### Spawn Object ######### 
 
 
@@ -317,21 +317,21 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
     # Markers
     frame_marker_cfg = FRAME_MARKER_CFG.copy()
     frame_marker_cfg.markers["frame"].scale = (0.1, 0.1, 0.1)
-    ee_marker = VisualizationMarkers(frame_marker_cfg.replace(prim_path="/Visuals/ee_current"))
-    goal_marker = VisualizationMarkers(frame_marker_cfg.replace(prim_path="/Visuals/ee_goal"))
+    tcp_marker = VisualizationMarkers(frame_marker_cfg.replace(prim_path="/Visuals/tcp_current"))
+    goal_marker = VisualizationMarkers(frame_marker_cfg.replace(prim_path="/Visuals/tcp_goal"))
 
     # Define goals for the arm
-    ee_goals = [
+    tcp_goals = [
         [0.5, 0.5, 0.7, 0.707, 0, 0.707, 0],
         [0.5, -0.4, 0.6, 0.707, 0.707, 0.0, 0.0],
         [0.5, 0, 0.5, 0.0, 1.0, 0.0, 0.0],
     ]
-    ee_goals = torch.tensor(ee_goals, device=sim.device)
+    tcp_goals = torch.tensor(tcp_goals, device=sim.device)
     # Track the given command
     current_goal_idx = 0
     # Create buffers to store actions
     ik_commands = torch.zeros(scene.num_envs, diff_ik_controller.action_dim, device=robot.device)
-    ik_commands[:] = ee_goals[current_goal_idx]
+    ik_commands[:] = tcp_goals[current_goal_idx]
 
     # Specify robot-specific parameters
     if args_cli.robot == "rb10":
@@ -345,9 +345,9 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
     # For a fixed base robot, the frame index is one less than the body index. This is because
     # the root body is not included in the returned Jacobians.
     if robot.is_fixed_base:
-        ee_jacobi_idx = robot_entity_cfg.body_ids[0] - 1
+        tcp_jacobi_idx = robot_entity_cfg.body_ids[0] - 1
     else:
-        ee_jacobi_idx = robot_entity_cfg.body_ids[0]
+        tcp_jacobi_idx = robot_entity_cfg.body_ids[0]
 
 
     # Define simulation stepping
@@ -365,25 +365,25 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
             robot.write_joint_state_to_sim(joint_pos, joint_vel)
             robot.reset()
             # reset actions
-            ik_commands[:] = ee_goals[current_goal_idx]
+            ik_commands[:] = tcp_goals[current_goal_idx]
             joint_pos_des = joint_pos[:, robot_entity_cfg.joint_ids].clone()
             # reset controller
             diff_ik_controller.reset()
             diff_ik_controller.set_command(ik_commands)
             # change goal
-            current_goal_idx = (current_goal_idx + 1) % len(ee_goals)
+            current_goal_idx = (current_goal_idx + 1) % len(tcp_goals)
         else:
             # obtain quantities from simulation
-            jacobian = robot.root_physx_view.get_jacobians()[:, ee_jacobi_idx, :, robot_entity_cfg.joint_ids]
-            ee_pose_w = robot.data.body_state_w[:, robot_entity_cfg.body_ids[0], 0:7]
+            jacobian = robot.root_physx_view.get_jacobians()[:, tcp_jacobi_idx, :, robot_entity_cfg.joint_ids]
+            tcp_pose_w = robot.data.body_state_w[:, robot_entity_cfg.body_ids[0], 0:7]
             root_pose_w = robot.data.root_state_w[:, 0:7]
             joint_pos = robot.data.joint_pos[:, robot_entity_cfg.joint_ids]
             # compute frame in root frame
-            ee_pos_b, ee_quat_b = subtract_frame_transforms(
-                root_pose_w[:, 0:3], root_pose_w[:, 3:7], ee_pose_w[:, 0:3], ee_pose_w[:, 3:7]
+            tcp_pos_b, tcp_quat_b = subtract_frame_transforms(
+                root_pose_w[:, 0:3], root_pose_w[:, 3:7], tcp_pose_w[:, 0:3], tcp_pose_w[:, 3:7]
             )
             # compute the joint commands
-            joint_pos_des = diff_ik_controller.compute(ee_pos_b, ee_quat_b, jacobian, joint_pos)
+            joint_pos_des = diff_ik_controller.compute(tcp_pos_b, tcp_quat_b, jacobian, joint_pos)
 
         # apply actions
         robot.set_joint_position_target(joint_pos_des, joint_ids=robot_entity_cfg.joint_ids)
@@ -396,9 +396,9 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
         scene.update(sim_dt)
 
         # obtain quantities from simulation
-        ee_pose_w = robot.data.body_state_w[:, robot_entity_cfg.body_ids[0], 0:7]
+        tcp_pose_w = robot.data.body_state_w[:, robot_entity_cfg.body_ids[0], 0:7]
         # update marker positions
-        ee_marker.visualize(ee_pose_w[:, 0:3], ee_pose_w[:, 3:7])
+        tcp_marker.visualize(tcp_pose_w[:, 0:3], tcp_pose_w[:, 3:7])
         goal_marker.visualize(ik_commands[:, 0:3] + scene.env_origins, ik_commands[:, 3:7])
 
 

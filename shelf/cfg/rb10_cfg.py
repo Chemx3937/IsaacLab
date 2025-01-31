@@ -34,7 +34,6 @@ from omni.isaac.lab.utils.assets import ISAACLAB_NUCLEUS_DIR
 """Configuration of RB-10 arm using implicit actuator models."""
 
 """Ver. RB10+ReC Gripper Model"""
-# 모든 Joint에 대한 Define이 아직 안됨
 RB_Gripper_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
         usd_path=f"/home/ryz/IsaacLab/shelf/env/rb_ReC_Gripper.usd",
@@ -84,6 +83,11 @@ RB_Gripper_CFG = ArticulationCfg(
             stiffness=8000,
             damping=500,
         ),
+        "left_base_finger_joint": ImplicitActuatorCfg(
+            joint_names_expr=["left_base_finger_joint"],
+            stiffness=None,
+            damping=None,
+        ),
         "right_base_finger_joint": ImplicitActuatorCfg(
             joint_names_expr=["right_base_finger_joint"],
             effort_limit=100.0,
@@ -98,11 +102,51 @@ RB_Gripper_CFG = ArticulationCfg(
             stiffness=10000000.0,
             damping=None,
         ),
+        "left_f_base_inner_f_joint": ImplicitActuatorCfg(
+            joint_names_expr=["left_f_base_inner_f_joint"],
+            stiffness=None,
+            damping=None,
+        ),
+        "left_f_base_outer_f_joint": ImplicitActuatorCfg(
+            joint_names_expr=["left_f_base_outer_f_joint"],
+            stiffness=None,
+            damping=None,
+        ),
+        "left_inner_f_inner_tip_joint": ImplicitActuatorCfg(
+            joint_names_expr=["left_inner_f_inner_tip_joint"],
+            stiffness=None,
+            damping=None,
+        ),
+        "left_outer_f_outer_tip_joint": ImplicitActuatorCfg(
+            joint_names_expr=["left_outer_f_outer_tip_joint"],
+            stiffness=None,
+            damping=None,
+        ),
         "right_f_base_inner_f_joint": ImplicitActuatorCfg(
             joint_names_expr=["right_f_base_inner_f_joint"],
             effort_limit=100,
             velocity_limit=None,
             stiffness=10000000.0,
+            damping=None,
+        ),
+        "right_f_base_outer_f_joint": ImplicitActuatorCfg(
+            joint_names_expr=["right_f_base_outer_f_joint"],
+            stiffness=None,
+            damping=None,
+        ),
+        "right_inner_f_inner_tip_joint": ImplicitActuatorCfg(
+            joint_names_expr=["right_inner_f_inner_tip_joint"],
+            stiffness=None,
+            damping=None,
+        ),
+        "right_outer_f_outer_tip_joint": ImplicitActuatorCfg(
+            joint_names_expr=["right_outer_f_outer_tip_joint"],
+            stiffness=None,
+            damping=None,
+        ),
+        "inner_suction_joint": ImplicitActuatorCfg(
+            joint_names_expr=["inner_suction_joint"],
+            stiffness=None,
             damping=None,
         ),
     },
