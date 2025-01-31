@@ -342,6 +342,7 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
     # Define goals for the arm
     tcp_goals = [
         [0.0, -0.5, 0.5, 1.0, 0.0, 0.0, 0.0],
+        [0.0, -0.9, 0.425, 1.0, 0.0, 0.0, 0.0],
         [0.5, 0.5, 0.7, 0.707, 0, 0.707, 0],
         [0.5, -0.4, 0.6, 0.707, 0.707, 0.0, 0.0],
         [0.5, 0, 0.5, 0.0, 1.0, 0.0, 0.0],
