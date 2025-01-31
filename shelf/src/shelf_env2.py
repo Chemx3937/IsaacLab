@@ -82,7 +82,7 @@ class ShelfPickingSceneCfg(InteractiveSceneCfg):
     table = AssetBaseCfg(
         prim_path="{ENV_REGEX_NS}/Table",
         spawn=sim_utils.UsdFileCfg(
-            usd_path=f"{ISAAC_NUCLEUS_DIR}/Props/Mounts/Stand/stand_instanceable.usd", scale=(2.0, 2.0, 2.0)
+            usd_path=f"{ISAAC_NUCLEUS_DIR}/Props/Mounts/Stand/stand_instanceable.usd", scale=(1.0, 1.0, 2.0)
         ),
     )
 
@@ -341,6 +341,7 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
 
     # Define goals for the arm
     tcp_goals = [
+        [0.0, -0.5, 0.5, 1.0, 0.0, 0.0, 0.0],
         [0.5, 0.5, 0.7, 0.707, 0, 0.707, 0],
         [0.5, -0.4, 0.6, 0.707, 0.707, 0.0, 0.0],
         [0.5, 0, 0.5, 0.0, 1.0, 0.0, 0.0],
